@@ -47,7 +47,7 @@
 
   /* ── Safe area for notch phones ── */
   .safe-top    { height: env(safe-area-inset-top, 0px); background: var(--bg); }
-  .safe-bottom { height: env(safe-area-inset-bottom, 0px); background: var(--bg2); }
+  .safe-bottom { display: none; }
 
   /* ── INSTALL BANNER (shows before install) ── */
   .install-banner {
@@ -160,9 +160,11 @@
 
   /* ── SCROLL CONTENT ── */
   .app-scroll {
-    height: calc(100vh - 62px - 70px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    height: calc(100vh - 62px - calc(70px + env(safe-area-inset-bottom, 0px)) - env(safe-area-inset-top, 0px));
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    position: relative;
+    z-index: 1;
   }
 
   /* ── HERO CARD ── */
@@ -341,13 +343,15 @@
   .bottom-nav {
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    height: 70px;
+    height: calc(70px + env(safe-area-inset-bottom, 0px));
     background: var(--bg2);
     border-top: 1px solid var(--border);
     display: flex;
     align-items: flex-start;
     padding-top: 10px;
     padding-bottom: env(safe-area-inset-bottom, 0px);
+    z-index: 200;
+    pointer-events: all;
   }
   .nav-item {
     flex: 1; display: flex; flex-direction: column;
@@ -356,6 +360,13 @@
     opacity: 0.45;
     transition: opacity 0.15s;
     font-size: 20px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    pointer-events: all;
+    min-height: 50px;
+    justify-content: flex-start;
+    padding-top: 2px;
   }
   .nav-item.active { opacity: 1; }
   .nav-label { font-size: 10px; font-weight: 600;
@@ -428,8 +439,6 @@
 </style>
 </head>
 <body>
-
-<div class="safe-top"></div>
 
 <!-- Toast notification -->
 <div class="toast" id="toast"></div>
@@ -666,29 +675,29 @@
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
-  <div class="nav-item active">
+  <div class="nav-item active" onclick="switchTab(this,'home')">
     <span>🏠</span>
     <span class="nav-label">Home</span>
   </div>
-  <div class="nav-item" onclick="switchTab(this)">
+  <div class="nav-item" onclick="switchTab(this,'rewards')">
     <span>⭐</span>
     <span class="nav-label">Rewards</span>
   </div>
-  <div class="nav-item" onclick="switchTab(this)">
+  <div class="nav-item" onclick="switchTab(this,'refer')">
     <span>👥</span>
     <span class="nav-label">Refer</span>
   </div>
-  <div class="nav-item" onclick="switchTab(this)">
+  <div class="nav-item" onclick="switchTab(this,'book')">
     <span>📅</span>
     <span class="nav-label">Book</span>
   </div>
-  <div class="nav-item" onclick="switchTab(this)">
+  <div class="nav-item" onclick="switchTab(this,'profile')">
     <span>👤</span>
     <span class="nav-label">Profile</span>
   </div>
 </div>
 
-<div class="safe-bottom"></div>
+
 
 <script>
 // ── PWA MANIFEST (injected as blob URL) ──
@@ -891,10 +900,23 @@ function showToast(msg) {
 }
 
 // ── NAV TABS ──
-function switchTab(el) {
+function switchTab(el, tabName) {
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   el.classList.add('active');
-  showToast('Coming soon in full version');
+
+  // Scroll to relevant section
+  const scroll = document.getElementById('appScroll');
+  const targets = {
+    'rewards': document.querySelector('.tiers-list'),
+    'refer':   document.querySelector('.ref-card'),
+    'book':    document.querySelector('.reward-pop'),
+    'profile': document.querySelector('.hero-card'),
+  };
+  if (targets[tabName]) {
+    targets[tabName].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    scroll.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
 
 // ── INIT ──
