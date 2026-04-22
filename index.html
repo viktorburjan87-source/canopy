@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111209">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CANOPY">
+<meta name="description" content="Your home protection rewards app">
+
+<!-- App icons for iOS (must be linked, not manifest-only) -->
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" sizes="152x152" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJgAAACYCAYAAAAYwiAhAAAEaklEQVR4nO3cPXLbMBCGYUqTxqV9hFwifQ6ePpfIEaRSpVIktPUHEgTxAbvY9+k840gy+WYJUBodpsbeP96urZ8TX86ny6Hl88mfjKBsUwcneXCi8kkRW9UHJKwx1AytygMR1phqhLbrAQgrhj2hHUv/IXHFsedcFwVGXPGUnvNNo4+wME3bLpnZE4y4MNvSQlZgxIVHuU2sBkZcSMlpo3gXCeRYDIzphTVrjSQDIy7kWmrlZWDEha1SzbAGg9RTYEwvlHrVDhMMUneBMb2w12NDTDBIfQbG9EItty0xwSBFYJA6ThOXxxy//vxY/Bn35qYOtz/gtaWYfn7/3fCV+HI+XQ5cIlesTSom2TICW5AbD5GlHbk8QuX94+3KBEtITaXUmosp9hqBvVAaC5E9I7AHOTvGpZ0jkd0jsBtbbkcQWR4C+6/kXheRrSOwFWs3UrnRuozApu07xtzfY4oR2O641n4/emShA2t18iNHFjYwxRvYLPqfhQxM+ekIIrsXLrAWH70hsi/hAkupfbuB2xf/hAqs1o4xFzvLQIFZO6nWXo9KiMB6fuQ5+nps+MAsfJ4+cmRDB2YhrpznGzmyYQOzFFfO844a2bCBpfS+fdD7+VsbMrDWtyO2inT7YrjAvJ8k76//0VCBWVx3pURZjw0TmKe4ZhEiGyIwj3HNRo9siMBSrMc18/I6S7gPzPqOMdeoO0vXgY0S12zEyNwG5vmgl/D697oMzPOifs1oi353gY0c12ykyFwFFiGu2SiRuQosZbS4ZiP8XW4CG23HmMv7ztJFYF4OZmsejov5wCKtu1I8r8dMB0ZcX7xGZjYw4nrmMTKTgRFXmrfITAaWEj2umafjYC6wqLcjtvJy+8JUYNYOjleWjqOZwFh3bedhPWYiMOIqZz2y7oER136WI+seWApxbWP1eHUNjB1jXRZ3lt0CIy4Na5F1Caz3uiCqHse9eWAs6vUsLfqbBkZc7ViJrFlgxNWehci636YgLq3ex7dJYOwY++q5szy8f7xdlU/AjtE+5X906QQjLh+U50k+waaJ0CxTL1O6L/IxNgKDVJNLZE3RL7fedt5MMEgRGKQIDFIEBikCgxSBQYrAIEVgkCIwSH3r/QJ6U98Zj/7OQ+gJ1uJtF29v7dQWOjDoERikCAxSBAYpAoMUgUGKwCBFYJAiMEgRGKQIDFIEBikCgxSBQYrAIEVgkCIwSBEYpAgMUgQGKQKDFIFBisAgRWCQOp5Pl0PvF4ExnU+XAxMMUgQGqdCBtfhikuhffvK5/vL2ffmwbV7bh55g0CMwSH0Gxu0K1HLbEhMMUneBMcWw12NDTDBIPQXGFEOpV+0wwSD1MjCmGLZKNZOcYESGXEutLF4iiQxr1hphDQap1cCYYkjJaSNrghEZHuU2kX2JJDLMtrRQFA2fHYupZMgULfKZZvGUnvPiXSSRxbHnXFeJhEvmmGoMkapTiNDGUPPqJLnMEZpPimWPfB1FbLap19LNF+oE11frzdlfKPnZclfXRisAAAAASUVORK5CYII=">
+<link rel="apple-touch-icon" sizes="192x192" href="data:image/png;base64,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">
+
+<!-- PWA Manifest — injected via JS blob -->
+<link rel="manifest" id="pwa-manifest">
+
+<title>CANOPY Rewards</title>
+
+<style>
+  :root {
+    --bg:      #111209;
+    --bg2:     #191c0c;
+    --surface: #1e2210;
+    --s2:      #252918;
+    --border:  rgba(255,255,255,0.07);
+    --lime:    #cff040;
+    --amber:   #f5b53a;
+    --blue:    #5ab8f0;
+    --copper:  #e87644;
+    --text:    #edeee5;
+    --muted:   #7a8060;
+    --ff:      -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--ff);
+    overscroll-behavior: none;
+  }
+
+  /* ── Safe area for notch phones ── */
+  .safe-top    { height: env(safe-area-inset-top, 0px); background: var(--bg); }
+  .safe-bottom { height: env(safe-area-inset-bottom, 0px); background: var(--bg2); }
+
+  /* ── INSTALL BANNER (shows before install) ── */
+  .install-banner {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--lime);
+    padding: 16px 20px;
+    z-index: 1000;
+    animation: slideUp 0.4s ease;
+  }
+  .install-banner.show { display: flex; gap: 14px; align-items: center; }
+  @keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0);   opacity: 1; }
+  }
+  .ib-icon {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    background: var(--lime);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; flex-shrink: 0;
+  }
+  .ib-text { flex: 1; }
+  .ib-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .ib-sub   { font-size: 12px; color: var(--muted); }
+  .ib-btn {
+    background: var(--lime);
+    color: #1a1e00;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .ib-close {
+    background: none; border: none; color: var(--muted);
+    font-size: 20px; cursor: pointer; padding: 4px; flex-shrink: 0;
+  }
+
+  /* ── iOS INSTALL INSTRUCTIONS ── */
+  .ios-hint {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 16px; right: 16px;
+    background: var(--surface);
+    border: 1px solid var(--lime);
+    border-radius: 18px 18px 0 0;
+    padding: 24px 20px;
+    z-index: 1000;
+    animation: slideUp 0.4s ease;
+  }
+  .ios-hint.show { display: block; }
+  .ios-title { font-size: 16px; font-weight: 700; color: var(--lime); margin-bottom: 10px; }
+  .ios-steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+  .ios-step  { display: flex; gap: 12px; align-items: center; font-size: 14px; color: var(--text); }
+  .ios-step-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--lime); color: #1a1e00;
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .ios-close {
+    width: 100%; background: var(--s2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px; color: var(--muted);
+    font-size: 14px; cursor: pointer; text-align: center;
+  }
+
+  /* ── STATUS BAR ── */
+  .status-bar {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 20px 12px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .status-logo {
+    font-size: 20px; font-weight: 900;
+    letter-spacing: 0.12em;
+    color: var(--lime);
+  }
+  .status-pts {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--lime);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 13px; font-weight: 700;
+    color: var(--lime);
+  }
+  .status-notif {
+    width: 36px; height: 36px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; cursor: pointer;
+  }
+  .notif-dot {
+    width: 8px; height: 8px;
+    background: var(--lime);
+    border-radius: 50%;
+    position: absolute;
+    top: -2px; right: -2px;
+  }
+
+  /* ── SCROLL CONTENT ── */
+  .app-scroll {
+    height: calc(100vh - 62px - 70px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ── HERO CARD ── */
+  .hero-card {
+    margin: 16px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--s2) 100%);
+    border: 1px solid var(--lime);
+    border-radius: 20px;
+    padding: 24px 22px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(207,240,64,0.07);
+  }
+  .hero-greeting { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  .hero-name     { font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 16px; }
+  .hero-pts-row  { display: flex; gap: 12px; align-items: flex-end; margin-bottom: 12px; }
+  .hero-pts-big  { font-size: 52px; font-weight: 900; color: var(--lime); line-height: 1; }
+  .hero-pts-lbl  { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.3; }
+
+  /* Progress bar */
+  .progress-wrap {
+    background: rgba(255,255,255,0.07);
+    border-radius: 100px;
+    height: 8px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--lime), #a0d010);
+    border-radius: 100px;
+    transition: width 0.8s ease;
+  }
+  .progress-labels {
+    display: flex; justify-content: space-between;
+    font-size: 10px; color: var(--muted);
+  }
+
+  /* ── ACTIVE REWARD (big pop) ── */
+  .reward-pop {
+    margin: 0 16px 16px;
+    background: linear-gradient(135deg, rgba(245,181,58,0.12), rgba(245,181,58,0.04));
+    border: 1.5px solid var(--amber);
+    border-radius: 18px;
+    padding: 18px 20px;
+    display: flex; gap: 16px; align-items: center;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .reward-pop:active { transform: scale(0.97); }
+  .rp-icon { font-size: 36px; flex-shrink: 0; }
+  .rp-label { font-size: 11px; color: var(--amber); font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3px; }
+  .rp-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .rp-sub   { font-size: 12px; color: var(--muted); }
+  .rp-arrow { color: var(--amber); font-size: 20px; margin-left: auto; }
+
+  /* ── SECTION HEADER ── */
+  .sec-hd {
+    padding: 4px 20px 10px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .sec-title { font-size: 13px; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .sec-link  { font-size: 12px; color: var(--lime); font-weight: 600; cursor: pointer; }
+
+  /* ── EARN CARDS (horizontal scroll) ── */
+  .earn-row {
+    display: flex; gap: 12px;
+    padding: 0 16px 4px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .earn-row::-webkit-scrollbar { display: none; }
+  .earn-card {
+    min-width: 140px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 14px;
+    scroll-snap-align: start;
+    cursor: pointer;
+    transition: border-color 0.15s;
+    flex-shrink: 0;
+  }
+  .earn-card:active { border-color: var(--lime); }
+  .earn-card-icon  { font-size: 26px; margin-bottom: 8px; }
+  .earn-card-pts   { font-size: 22px; font-weight: 900; color: var(--lime); line-height: 1; }
+  .earn-card-unit  { font-size: 9px; color: var(--muted); letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 6px; }
+  .earn-card-label { font-size: 12px; color: var(--text); font-weight: 600; line-height: 1.3; }
+
+  /* ── REWARD TIERS ── */
+  .tiers-list { padding: 0 16px; display: flex; flex-direction: column; gap: 10px; }
+  .tier-row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex; gap: 14px; align-items: center;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .tier-row:active { background: var(--s2); }
+  .tier-row.unlocked { border-color: var(--lime); background: rgba(207,240,64,0.04); }
+  .tier-row.strategic { border-color: var(--amber); background: rgba(245,181,58,0.04); }
+  .tier-pts {
+    min-width: 54px;
+    font-size: 20px; font-weight: 900;
+    color: var(--lime); line-height: 1; text-align: center;
+  }
+  .tier-pts small { display: block; font-size: 9px; color: var(--muted);
+    font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; }
+  .tier-pts.amber { color: var(--amber); }
+  .tier-info { flex: 1; }
+  .tier-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .tier-desc { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .tier-badge {
+    background: rgba(207,240,64,0.12);
+    border: 1px solid rgba(207,240,64,0.25);
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 10px; font-weight: 700;
+    color: var(--lime);
+    white-space: nowrap;
+  }
+  .tier-badge.locked { background: rgba(255,255,255,0.05); border-color: var(--border);
+    color: var(--muted); }
+  .tier-badge.amber  { background: rgba(245,181,58,0.12); border-color: rgba(245,181,58,0.28); color: var(--amber); }
+
+  /* ── REFERRAL CARD ── */
+  .ref-card {
+    margin: 16px;
+    background: var(--surface);
+    border: 1px solid var(--blue);
+    border-radius: 18px;
+    padding: 20px;
+  }
+  .ref-top { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
+  .ref-icon { font-size: 32px; }
+  .ref-title { font-size: 16px; font-weight: 800; color: var(--text); }
+  .ref-sub   { font-size: 12px; color: var(--muted); }
+  .ref-link-box {
+    background: var(--s2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex; gap: 10px; align-items: center;
+    margin-bottom: 12px;
+  }
+  .ref-url   { flex: 1; font-size: 12px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ref-copy  {
+    background: var(--lime); color: #1a1e00;
+    border: none; border-radius: 8px;
+    padding: 8px 14px; font-size: 12px; font-weight: 700;
+    cursor: pointer; flex-shrink: 0;
+  }
+  .ref-rewards { display: flex; gap: 10px; }
+  .ref-rew {
+    flex: 1; background: rgba(90,184,240,0.08);
+    border: 1px solid rgba(90,184,240,0.22);
+    border-radius: 10px; padding: 10px 12px;
+  }
+  .ref-rew-val   { font-size: 18px; font-weight: 900; color: var(--blue); }
+  .ref-rew-label { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  /* ── BOTTOM NAV ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 70px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    padding-top: 10px;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .nav-item {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; gap: 4px;
+    cursor: pointer;
+    opacity: 0.45;
+    transition: opacity 0.15s;
+    font-size: 20px;
+  }
+  .nav-item.active { opacity: 1; }
+  .nav-label { font-size: 10px; font-weight: 600;
+    letter-spacing: 0.04em; color: var(--text); }
+  .nav-item.active .nav-label { color: var(--lime); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    top: 80px; left: 50%; transform: translateX(-50%) translateY(-20px);
+    background: var(--lime); color: #1a1e00;
+    padding: 12px 20px; border-radius: 100px;
+    font-size: 13px; font-weight: 700;
+    opacity: 0; transition: all 0.3s;
+    z-index: 999; white-space: nowrap;
+    pointer-events: none;
+  }
+  .toast.show {
+    opacity: 1; transform: translateX(-50%) translateY(0);
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(4px);
+    z-index: 500;
+    display: none; align-items: flex-end;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal {
+    width: 100%;
+    background: var(--bg2);
+    border-radius: 24px 24px 0 0;
+    padding: 24px 20px 40px;
+    animation: slideUp 0.35s ease;
+  }
+  .modal-handle {
+    width: 40px; height: 4px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+    margin: 0 auto 20px;
+  }
+  .modal-title { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+  .modal-sub   { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.5; }
+  .modal-value {
+    background: var(--surface);
+    border: 1.5px solid var(--lime);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .modal-val-num { font-size: 40px; font-weight: 900; color: var(--lime); }
+  .modal-val-lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .modal-btn {
+    width: 100%;
+    background: var(--lime); color: #1a1e00;
+    border: none; border-radius: 14px;
+    padding: 16px; font-size: 15px; font-weight: 800;
+    cursor: pointer; letter-spacing: 0.03em;
+  }
+  .modal-btn-sec {
+    width: 100%;
+    background: none; color: var(--muted);
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 14px; font-size: 14px; font-weight: 600;
+    cursor: pointer; margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="safe-top"></div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<!-- Install banner for Android/Chrome -->
+<div class="install-banner" id="installBanner">
+  <div class="ib-icon">🏠</div>
+  <div class="ib-text">
+    <div class="ib-title">Add CANOPY to Home Screen</div>
+    <div class="ib-sub">Get push notifications & rewards</div>
+  </div>
+  <button class="ib-btn" id="installBtn">Install</button>
+  <button class="ib-close" onclick="document.getElementById('installBanner').classList.remove('show')">✕</button>
+</div>
+
+<!-- iOS install instructions -->
+<div class="ios-hint" id="iosHint">
+  <div class="modal-handle"></div>
+  <div class="ios-title">🏠 Add CANOPY to Your Home Screen</div>
+  <div class="ios-steps">
+    <div class="ios-step">
+      <div class="ios-step-num">1</div>
+      <div>Tap the <strong>Share button</strong> at the bottom of your browser (the box with an arrow)</div>
+    </div>
+    <div class="ios-step">
+      <div class="ios-step-num">2</div>
+      <div>Scroll down and tap <strong>"Add to Home Screen"</strong></div>
+    </div>
+    <div class="ios-step">
+      <div class="ios-step-num">3</div>
+      <div>Tap <strong>Add</strong> — CANOPY appears on your home screen with the icon!</div>
+    </div>
+  </div>
+  <button class="ios-close" onclick="document.getElementById('iosHint').classList.remove('show')">Got it!</button>
+</div>
+
+<!-- Reward modal -->
+<div class="modal-overlay" id="rewardModal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div style="font-size:48px; text-align:center; margin-bottom:12px;" id="modalIcon">🚁</div>
+    <div class="modal-title" id="modalTitle">Free Drone Inspection</div>
+    <div class="modal-sub" id="modalSub">27-point roof health report. Crew arrives, photos taken, report lands in your app within 24 hours.</div>
+    <div class="modal-value">
+      <div class="modal-val-num" id="modalVal">$350</div>
+      <div class="modal-val-lbl">value — yours free</div>
+    </div>
+    <button class="modal-btn" onclick="redeemReward()">Claim This Reward →</button>
+    <button class="modal-btn-sec" onclick="closeModal()">Maybe later</button>
+  </div>
+</div>
+
+<!-- ── APP SHELL ── -->
+<div class="status-bar">
+  <div class="status-logo">CANOPY</div>
+  <div class="status-pts">⚡ <span id="ptsDisplay">230</span> pts</div>
+  <div class="status-notif" onclick="requestPush()" style="position:relative;">
+    🔔
+    <div class="notif-dot" id="notifDot"></div>
+  </div>
+</div>
+
+<div class="app-scroll" id="appScroll">
+
+  <!-- HERO CARD -->
+  <div class="hero-card">
+    <div class="hero-greeting">Welcome back 👋</div>
+    <div class="hero-name" id="heroName">Sarah M.</div>
+    <div class="hero-pts-row">
+      <div class="hero-pts-big" id="heroPts">230</div>
+      <div class="hero-pts-lbl">loyalty<br>points</div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-fill" id="progressFill" style="width:46%"></div>
+    </div>
+    <div class="progress-labels">
+      <span id="progLeft">230 pts</span>
+      <span>Next reward at 250 pts →</span>
+    </div>
+  </div>
+
+  <!-- ACTIVE REWARD -->
+  <div class="reward-pop" onclick="openModal('🚁','Free Drone Inspection','27-point full roof health report. Crew on property, full photo report in your app. Reveals any issue before it gets expensive.','$350 value')">
+    <div class="rp-icon">🎁</div>
+    <div>
+      <div class="rp-label">⏰ Expires in 3 days</div>
+      <div class="rp-title">You unlocked: Free Drone Inspection</div>
+      <div class="rp-sub">Tap to claim — worth $350</div>
+    </div>
+    <div class="rp-arrow">›</div>
+  </div>
+
+  <!-- EARN POINTS -->
+  <div class="sec-hd" style="margin-top:8px;">
+    <div class="sec-title">Earn Points</div>
+    <div class="sec-link">See all</div>
+  </div>
+
+  <div class="earn-row">
+    <div class="earn-card" onclick="earnPoints(150,'Referral bonus')">
+      <div class="earn-card-icon">👥</div>
+      <div class="earn-card-pts">150</div>
+      <div class="earn-card-unit">points</div>
+      <div class="earn-card-label">Refer a neighbor</div>
+    </div>
+    <div class="earn-card" onclick="earnPoints(80,'Google review')">
+      <div class="earn-card-icon">⭐</div>
+      <div class="earn-card-pts">80</div>
+      <div class="earn-card-unit">points</div>
+      <div class="earn-card-label">Leave a review</div>
+    </div>
+    <div class="earn-card" onclick="earnPoints(60,'Annual inspection')">
+      <div class="earn-card-icon">📅</div>
+      <div class="earn-card-pts">60</div>
+      <div class="earn-card-unit">points</div>
+      <div class="earn-card-label">Book inspection</div>
+    </div>
+    <div class="earn-card" onclick="earnPoints(40,'Yard sign 30 days')">
+      <div class="earn-card-icon">🪧</div>
+      <div class="earn-card-pts">40</div>
+      <div class="earn-card-unit">points</div>
+      <div class="earn-card-label">Keep yard sign up</div>
+    </div>
+    <div class="earn-card" onclick="earnPoints(30,'Social share')">
+      <div class="earn-card-icon">📸</div>
+      <div class="earn-card-pts">30</div>
+      <div class="earn-card-unit">points</div>
+      <div class="earn-card-label">Share before/after</div>
+    </div>
+  </div>
+
+  <!-- REWARDS LADDER -->
+  <div class="sec-hd" style="margin-top:20px;">
+    <div class="sec-title">Your Rewards</div>
+    <div class="sec-link">History</div>
+  </div>
+
+  <div class="tiers-list">
+    <div class="tier-row unlocked" onclick="openModal('💵','$25 Off Any Service','Applied to any booking through the app. No cash-out — must be used within 3 days before it expires.','$25 credit')">
+      <div class="tier-pts">50<small>pts</small></div>
+      <div class="tier-info">
+        <div class="tier-name">$25 Off Any Service</div>
+        <div class="tier-desc">Redeemable in app · 3-day expiry</div>
+      </div>
+      <div class="tier-badge">✓ Unlocked</div>
+    </div>
+
+    <div class="tier-row unlocked strategic" onclick="openModal('🚁','Free Drone Inspection','Full 27-point roof health report. Granule loss, flashing, soft spots, moss — all documented with drone photos. Report in your app within 24 hours.','$350 value')">
+      <div class="tier-pts amber">250<small>pts</small></div>
+      <div class="tier-info">
+        <div class="tier-name">Free Drone Inspection 🔥</div>
+        <div class="tier-desc">⏰ Expires in 3 days — claim now</div>
+      </div>
+      <div class="tier-badge amber">Claim ›</div>
+    </div>
+
+    <div class="tier-row" onclick="openModal('🧹','Free Gutter Flush','Up to 100 linear feet, full flush and debris clear. We also do a quick visual check while we're there.','$180 value')">
+      <div class="tier-pts">200<small>pts</small></div>
+      <div class="tier-info">
+        <div class="tier-name">Free Gutter Flush</div>
+        <div class="tier-desc">Up to 100 linear ft</div>
+      </div>
+      <div class="tier-badge locked">200 pts</div>
+    </div>
+
+    <div class="tier-row" onclick="openModal('💧','Quarterly Roof Wash','Full soft-wash treatment. Removes algae, black streaks, moss, and debris. Your roof will look brand new.','$280 value')">
+      <div class="tier-pts">350<small>pts</small></div>
+      <div class="tier-info">
+        <div class="tier-name">Quarterly Roof Wash</div>
+        <div class="tier-desc">Full soft-wash treatment</div>
+      </div>
+      <div class="tier-badge locked">350 pts</div>
+    </div>
+
+    <div class="tier-row" onclick="openModal('🛠️','Annual Checkup + $200 Repair Credit','Full inspection + up to $200 in minor repairs included. Covers re-caulk, loose flashing, 1-3 shingles. Most common issues fixed free.','$450 value')">
+      <div class="tier-pts">500<small>pts</small></div>
+      <div class="tier-info">
+        <div class="tier-name">Annual Checkup + $200 Credit</div>
+        <div class="tier-desc">Full inspection + minor repairs</div>
+      </div>
+      <div class="tier-badge locked">500 pts</div>
+    </div>
+
+    <div class="tier-row" onclick="openModal('🏆','20% Off Any Service','Applied to any roofing service — partial re-roof, gutter replacement, skylight install, siding. Capped at $1,000 savings.','up to $1,000 off')">
+      <div class="tier-pts">750<small>pts</small></div>
+      <div class="tier-info">
+        <div class="tier-name">20% Off Any Service</div>
+        <div class="tier-desc">Up to $1,000 savings cap</div>
+      </div>
+      <div class="tier-badge locked">750 pts</div>
+    </div>
+
+    <div class="tier-row" onclick="openModal('🛡️','Priority Storm Response — VIP','When a storm hits, you skip the 2-week queue. Guaranteed 24-hour response, emergency tarping, priority inspection. Active for 12 months.','Priceless after a storm')">
+      <div class="tier-pts" style="color:var(--copper)">1000<small>pts</small></div>
+      <div class="tier-info">
+        <div class="tier-name">🛡️ Priority Storm Response</div>
+        <div class="tier-desc">Skip the queue for 12 months</div>
+      </div>
+      <div class="tier-badge locked">1000 pts</div>
+    </div>
+  </div>
+
+  <!-- REFERRAL CARD -->
+  <div class="ref-card">
+    <div class="ref-top">
+      <div class="ref-icon">👥</div>
+      <div>
+        <div class="ref-title">Refer a Neighbor</div>
+        <div class="ref-sub">Same street · Same roof age · Big reward</div>
+      </div>
+    </div>
+    <div class="ref-link-box">
+      <div class="ref-url" id="refUrl">canopy.app/ref/SARAH2024</div>
+      <button class="ref-copy" onclick="copyRef()">Copy Link</button>
+    </div>
+    <div class="ref-rewards">
+      <div class="ref-rew">
+        <div class="ref-rew-val">+150 pts</div>
+        <div class="ref-rew-label">you earn per confirmed job</div>
+      </div>
+      <div class="ref-rew">
+        <div class="ref-rew-val">$75</div>
+        <div class="ref-rew-label">credit added automatically</div>
+      </div>
+      <div class="ref-rew">
+        <div class="ref-rew-val">2 refs</div>
+        <div class="ref-rew-label">= Canopy Shield status</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:90px;"></div><!-- scroll buffer above nav -->
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <div class="nav-item active">
+    <span>🏠</span>
+    <span class="nav-label">Home</span>
+  </div>
+  <div class="nav-item" onclick="switchTab(this)">
+    <span>⭐</span>
+    <span class="nav-label">Rewards</span>
+  </div>
+  <div class="nav-item" onclick="switchTab(this)">
+    <span>👥</span>
+    <span class="nav-label">Refer</span>
+  </div>
+  <div class="nav-item" onclick="switchTab(this)">
+    <span>📅</span>
+    <span class="nav-label">Book</span>
+  </div>
+  <div class="nav-item" onclick="switchTab(this)">
+    <span>👤</span>
+    <span class="nav-label">Profile</span>
+  </div>
+</div>
+
+<div class="safe-bottom"></div>
+
+<script>
+// ── PWA MANIFEST (injected as blob URL) ──
+const icons192 = "data:image/png;base64,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";
+const icons512 = "data:image/png;base64,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";
+
+const manifest = {
+  name: "CANOPY Rewards",
+  short_name: "CANOPY",
+  description: "Your home protection rewards app",
+  start_url: "./",
+  display: "standalone",
+  background_color: "#111209",
+  theme_color: "#111209",
+  orientation: "portrait",
+  categories: ["utilities", "lifestyle"],
+  icons: [
+    { src: icons192, sizes: "192x192", type: "image/png", purpose: "any" },
+    { src: icons512, sizes: "512x512", type: "image/png", purpose: "any maskable" }
+  ]
+};
+
+const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/manifest+json'});
+document.getElementById('pwa-manifest').href = URL.createObjectURL(manifestBlob);
+
+// ── SERVICE WORKER (inline as blob) ──
+const swCode = `
+const CACHE = 'canopy-v1';
+const ASSETS = ['./'];
+
+self.addEventListener('install', e => {
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', e => {
+  e.waitUntil(clients.claim());
+});
+
+self.addEventListener('fetch', e => {
+  e.respondWith(
+    caches.match(e.request).then(r => r || fetch(e.request).catch(() => caches.match('./')))
+  );
+});
+
+self.addEventListener('push', e => {
+  const data = e.data ? e.data.json() : {};
+  const title = data.title || 'CANOPY Rewards';
+  const opts = {
+    body:  data.body  || 'You have a new reward waiting!',
+    icon:  data.icon  || './icon-192.png',
+    badge: data.badge || './icon-96.png',
+    data:  data.url   || '/',
+    actions: [
+      { action: 'view', title: 'View Reward' },
+      { action: 'dismiss', title: 'Later' }
+    ],
+    vibrate: [200, 100, 200],
+    tag: 'canopy-notif',
+    renotify: true
+  };
+  e.waitUntil(self.registration.showNotification(title, opts));
+});
+
+self.addEventListener('notificationclick', e => {
+  e.notification.close();
+  if (e.action !== 'dismiss') {
+    e.waitUntil(clients.openWindow(e.notification.data || '/'));
+  }
+});
+`;
+
+if ('serviceWorker' in navigator) {
+  const swBlob = new Blob([swCode], {type: 'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(swBlob), {scope: './'})
+    .then(reg => console.log('SW registered', reg))
+    .catch(e => console.log('SW fail', e));
+}
+
+// ── INSTALL PROMPT ──
+let deferredPrompt = null;
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+                  || window.navigator.standalone === true;
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  setTimeout(() => document.getElementById('installBanner').classList.add('show'), 2000);
+});
+
+document.getElementById('installBtn').addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const result = await deferredPrompt.userChoice;
+    if (result.outcome === 'accepted') showToast('🏠 CANOPY added to home screen!');
+    deferredPrompt = null;
+    document.getElementById('installBanner').classList.remove('show');
+  }
+});
+
+// iOS — show hint manually if in Safari and not standalone
+if (isIOS && !isStandalone) {
+  setTimeout(() => document.getElementById('iosHint').classList.add('show'), 3000);
+}
+
+// ── PUSH NOTIFICATIONS ──
+async function requestPush() {
+  if (!('Notification' in window)) {
+    showToast('Notifications not supported in this browser');
+    return;
+  }
+  if (Notification.permission === 'granted') {
+    showToast('✅ Notifications already enabled!');
+    document.getElementById('notifDot').style.background = '#cff040';
+    // Demo: fire a local notification
+    demoNotification();
+    return;
+  }
+  const perm = await Notification.requestPermission();
+  if (perm === 'granted') {
+    showToast('🔔 Notifications enabled! You're all set.');
+    document.getElementById('notifDot').style.background = '#cff040';
+    demoNotification();
+  } else {
+    showToast('Notifications blocked — check browser settings');
+  }
+}
+
+function demoNotification() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready.then(reg => {
+      reg.showNotification('🎁 CANOPY Rewards', {
+        body: 'Your Free Drone Inspection expires in 3 days. Tap to claim!',
+        icon: 'data:image/png;base64,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',
+        badge: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAACvUlEQVR4nO2dMXKDMBBFBZMmZXKEXCJ9Dp4+l8gR7NJlUsmDMQKk1e7fhf+aNMaB/7TSCsbDkIS8vb/+Sb8jMtfLbZAc33Tw2UMv0SKj6gAGv48aEbs+yODb2CNi3PoAw29nT3arAhi+nK0MiwIYfj/WslwUwPD7U8r0SQDD12Mp23HrA6Qv84w3uyCiy10AR78d06xZAWDGlDj6EeTMWQFgQgv4/v18+BuRIer0sxT618cP4ExkhKyA0oiPWAnhBGyFHE1COAFzIk47U0IJmI/uHP5cQqQqCCOgNtQoEkII2NPxLE1FESS4F1DTbkaU4FpAS68fTYJbAZKNViQJLgX02OVGkeBSwJzWXj/CHsGdgFKv34r3PYIrAVbheJLgRoDm3U3P64ELARa3lr1KgAuwvK/vUQJUAOKhijcJ8AqYYtU2empPYQJ6t5u1eGlPIQLQ824JxHmZC/D0MN3DemAqwFP4a//fUoKZAI/hZ5ASTAR4Dj+DkgBZhL2Fn0Gcl7oAdLtZi3V7qirAa7tZi+Z1qAmIMO+XsFwPVAREDj9jJaG7gCOEn7GQ0FXAkcLPaEvoJuCI4Wc0JagtwkcJP6N1PV0EROv1W9HYI4gFHKXXb0V6/aLfiJ09/CmtVS+qgKNONbVIcnD1TPiMmP9M1fu0ZV3VrAAwFACGAsBQABgKAEMBYF7QJ7CH1tbQe8ubUoAKkPTlEXbq7gUcHQoAQwFgKAAMBYChADAUAIYCwFAAGAoAQwFgKAAMBYChADAUAIYCwIzS9+FqI3mq5f2J2PVyG4aU+A4ZFNfLbeAUBGZMSf5ablJPzpwVAOYugFVgxzRrVgCYBwGsAn3mGT9VACXosZTt4hRECf0pZVpcAyihH2tZri7ClCBnK8PNLogS2tmTXVW4vGe0j5pB2zS6KWKZltlCPL2cXYZ0iv4Hz14wEdtpNmIAAAAASUVORK5CYII=',
+        vibrate: [200, 100, 200],
+        tag: 'canopy-demo'
+      });
+    });
+  }
+}
+
+// ── STATE ──
+let pts = 230;
+
+function updatePts(newPts) {
+  pts = newPts;
+  document.getElementById('ptsDisplay').textContent = pts;
+  document.getElementById('heroPts').textContent = pts;
+  document.getElementById('progLeft').textContent = pts + ' pts';
+  // Progress to next reward (250)
+  const pct = Math.min(100, (pts / 250) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+function earnPoints(amount, label) {
+  updatePts(pts + amount);
+  showToast('⚡ +' + amount + ' pts — ' + label + '!');
+}
+
+// ── MODAL ──
+function openModal(icon, title, sub, val) {
+  document.getElementById('modalIcon').textContent = icon;
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalSub').textContent = sub;
+  document.getElementById('modalVal').textContent = val;
+  document.getElementById('rewardModal').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('rewardModal').classList.remove('show');
+}
+
+function redeemReward() {
+  closeModal();
+  showToast('🎉 Reward claimed! We'll be in touch to schedule.');
+}
+
+document.getElementById('rewardModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+// ── COPY REF LINK ──
+function copyRef() {
+  const url = document.getElementById('refUrl').textContent;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => showToast('📋 Link copied!'));
+  } else {
+    showToast('📋 Link copied!');
+  }
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ── NAV TABS ──
+function switchTab(el) {
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  el.classList.add('active');
+  showToast('Coming soon in full version');
+}
+
+// ── INIT ──
+// Check if notifs granted already
+if (Notification.permission === 'granted') {
+  document.getElementById('notifDot').style.background = '#cff040';
+}
+</script>
+</body>
+</html>
